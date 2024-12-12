@@ -1,0 +1,54 @@
+> library("naniar")
+> mcar_res = mcar_test("C:\Users\tawsi\Downloads\CKD\Chronic_Kidney_Disease\ckd120.csv")
+Error: '\U' used without hex digits in character string (<input>:1:26)
+> mcar_res = mcar_test("C:/Users/tawsi/Downloads/CKD/Chronic_Kidney_Disease/ckd120.csv")
+Error in `mcar_test()`:
+! Input must inherit from <data.frame>
+We see class: <character>
+Run `rlang::last_trace()` to see where the error occurred.
+> library(readr)
+> data120 <- read_csv("C:/Users/tawsi/Downloads/CKD/Chronic_Kidney_Disease/ckd120.csv")
+Rows: 120 Columns: 25
+── Column specification ───────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr (13): rbc, pc, pcc, ba, wbcc, rbcc, htn, dm, cad, appet, pe, ane, class
+dbl (12): age, bp, sg, al, su, bgr, bu, sc, sod, pot, hemo, pcv
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> mcar_res = mcar_test(data120)
+> print(mcar_res)
+# A tibble: 1 × 4
+  statistic    df       p.value missing.patterns
+      <dbl> <dbl>         <dbl>            <int>
+1     1092.   832 0.00000000291               42
+> data240 <- read_csv("C:/Users/tawsi/Downloads/CKD/Chronic_Kidney_Disease/ckd240.csv")
+Rows: 240 Columns: 25
+── Column specification ───────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr (13): rbc, pc, pcc, ba, pcv, wbcc, htn, dm, cad, appet, pe, ane, class
+dbl (12): age, bp, sg, al, su, bgr, bu, sc, sod, pot, hemo, rbcc
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> mcar_res = mcar_test(data240)
+> print(mcar_res)
+# A tibble: 1 × 4
+  statistic    df  p.value missing.patterns
+      <dbl> <dbl>    <dbl>            <int>
+1     1808.  1410 2.49e-12               71
+> data360 <- read_csv("C:/Users/tawsi/Downloads/CKD/Chronic_Kidney_Disease/ckd360.csv")
+Rows: 360 Columns: 25
+── Column specification ───────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr (13): rbc, pc, pcc, ba, pcv, rbcc, htn, dm, cad, appet, pe, ane, class
+dbl (12): age, bp, sg, al, su, bgr, bu, sc, sod, pot, hemo, wbcc
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> mcar_res = mcar_test(data360)
+> print(mcar_res)
+# A tibble: 1 × 4
+  statistic    df p.value missing.patterns
+      <dbl> <dbl>   <dbl>            <int>
+1     2726.  1962      0              100
