@@ -6,18 +6,6 @@ import numpy as np
 
 
 def impute_missing_values_with_logreg(training_file: str, testing_file: str, output_file: str):
-    """
-    Impute missing values in the testing dataset using Regression trained on the training dataset.
-    - For categorical targets, use Logistic Regression.
-    - For continuous targets, use Linear Regression.
-
-    In the test dataset, only independent features with values are considered for prediction, ignoring features with nulls.
-
-    Args:
-        training_file (str): Path to the training dataset (CSV file).
-        testing_file (str): Path to the testing dataset (CSV file).
-        output_file (str): Path to save the imputed testing dataset (CSV file).
-    """
     # Load the datasets
     training_df = pd.read_csv(training_file)
     testing_df = pd.read_csv(testing_file)
