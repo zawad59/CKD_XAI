@@ -10,16 +10,6 @@ def calculate_entropy(series):
     return entropy(value_counts, base=2)
 
 def calculate_information_gain_with_entropy(file_path: str, target_feature: str):
-    """
-    Calculate entropy and information gain of all features with respect to the target feature.
-
-    Args:
-        file_path (str): Path to the dataset CSV file.
-        target_feature (str): The name of the target feature for prediction.
-
-    Returns:
-        DataFrame: A DataFrame with features, their entropy, and corresponding information gain.
-    """
     # Load the dataset
     df = pd.read_csv(file_path)
 
