@@ -6,19 +6,6 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 import joblib
 
 def logistic_regression_with_kfold(file_path: str, target_column: str, model_output: str, k: int):
-    """
-    Apply k-fold cross-validation, train a Logistic Regression model using selected features,
-    save the model, load it, and evaluate metrics for each class and overall.
-
-    Args:
-        file_path (str): Path to the dataset CSV file.
-        target_column (str): The target column for prediction.
-        model_output (str): Path to save the trained model.
-        k (int): Number of folds for cross-validation.
-
-    Returns:
-        None: Prints accuracy, precision, recall, F1 score, and accuracy for each class and overall.
-    """
     # Load the dataset
     df = pd.read_csv(file_path)
 
