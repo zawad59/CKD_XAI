@@ -4,17 +4,6 @@ from collections import Counter
 from sklearn.preprocessing import LabelEncoder
 
 def apply_smote(file_path: str, target_column: str, output_file: str):
-    """
-    Convert categorical features to numeric, then apply SMOTE to handle class imbalance.
-
-    Args:
-        file_path (str): Path to the dataset CSV file.
-        target_column (str): The target column with class labels.
-        output_file (str): Path to save the resampled dataset.
-
-    Returns:
-        None: Saves the resampled dataset to the specified output file.
-    """
     # Load the dataset
     df = pd.read_csv(file_path)
 
