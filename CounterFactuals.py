@@ -54,7 +54,7 @@ def generate_predictions_and_counterfactuals(file_path: str, target_column: str)
 
     # Generate counterfactuals for the desired outcome (Class 0 - CKD)
     explanation = exp.generate_counterfactuals(
-        query_instance, total_CFs=5, desired_class=0, features_to_vary="all"
+        query_instance, total_CFs=5, desired_class=0, features_to_vary=selected_features
     )
     cf_df = explanation.visualize_as_dataframe()
 
